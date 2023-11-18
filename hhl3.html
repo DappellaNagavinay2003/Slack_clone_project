@@ -1,0 +1,192 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - Slack Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('bc.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        header {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logout-button {
+            color: white;
+            background: blue;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease, box-shadow 0.3s ease; 
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+        }
+
+        .logout-button:hover {
+            background: darkblue;
+            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5); 
+        }
+
+        .messages-page {
+            width: 65%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .message-section {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .message-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .message {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 3px;
+        }
+
+        .message-sender {
+            font-weight: bold;
+        }
+
+        .message-timestamp {
+            margin-left: 10px;
+            font-size: 0.8em;
+        }
+
+        .message-content {
+            margin-top: 5px;
+        }
+
+        .send-message-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .send-message-form label,
+        .send-message-form button {
+            color: white;
+            margin-bottom: 10px;
+            cursor: pointer;
+            //did by dappella naga vinay
+            transition: color 0.3s ease, box-shadow 0.3s ease; 
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+        }
+
+        .send-message-form textarea {
+            width: 100%;
+        }
+
+        .send-message-form button:hover {
+            color: lightgreen;
+            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5); 
+        }
+
+        .user1, .user2, .channel {
+            transition: background 0.3s ease, box-shadow 0.3s ease; 
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .user1:hover, .user2:hover, .channel:hover {
+            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5); 
+        }
+
+        .user1 {
+            background-color: #3498db;
+        }
+
+        .user2 {
+            background-color: #e74c3c;
+        }
+
+        .channel {
+            background-color: violet;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Messages - Slack Clone</h1>
+    <button class="logout-button" onclick="logout()">Logout</button>
+</header>
+
+<div class="messages-page">
+    <div class="message-section">
+        <h2>Channel Name</h2>
+        <ul class="message-list" id="messageList">
+        </ul>
+
+        <div class="send-message-form">
+            <label for="messageContent">Message:</label>
+            <textarea id="messageContent" name="messageContent" rows="4" required></textarea>
+
+            <button onclick="sendMessage('User1')" class="user1">Send Message as User1</button>
+            <button onclick="sendMessage('User2')" class="user2">Send Message as User2</button>
+            <button onclick="goToChannels()" class="channel">Channels</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function sendMessage(username) {
+        var messageContent = document.getElementById('messageContent').value;
+        var timestamp = new Date().toLocaleString();
+        var messageElement = document.createElement('li');
+        messageElement.className = 'message ' + username.toLowerCase();
+        messageElement.innerHTML = `
+            <span class="message-sender">${username}</span>
+            <span class="message-timestamp">${timestamp}</span>
+            <p class="message-content">${messageContent}</p>
+        `;
+        //did by dappella naga vinay
+        var messageList = document.getElementById('messageList');
+        messageList.appendChild(messageElement);
+        document.getElementById('messageContent').value = "";
+        showNotification(`${username} sent a message to you at ${timestamp}: ${messageContent}`);
+    }
+
+    function showNotification(message) {
+        alert(message);
+    }
+
+    function goToChannels() {
+        window.location.href = 'hhl2.html';
+    }
+
+    function logout() {
+        window.location.href = 'hhl1.html';
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Channels - Slack Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('a.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        header {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logout-button {
+            color: white;
+            background: blue;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background 0.3s ease, box-shadow 0.3s ease; 
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .logout-button:hover {
+            background: darkblue;
+            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5); 
+        }
+
+        .channels-page {
+            width: 65%;
+            background-color:brown;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            //did by dappella naga vinay
+        }
+
+        .channels-section {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .channel-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .channel-list-item {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 5px;
+            border-radius: 3px;
+            transition: background 0.3s ease, box-shadow 0.3s ease; 
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+        }
+
+        .channel-list-item:hover {
+            background: #555;
+            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5); 
+        }
+
+        .create-channel-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .create-channel-form label
+        {
+            color: green;
+            margin-bottom: 10px;
+            
+        }
+        .create-channel-form button {
+            color: green;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: color 0.3s ease, box-shadow 0.3s ease; 
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .create-channel-form button:hover {
+            color: lightgreen;
+            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Channels - Slack Clone</h1>
+       
+        <button class="logout-button" onclick="logout()">Logout</button>
+    </header>
+
+    <div class="channels-page">
+        <div class="channels-section">
+            <h2>Channels</h2>
+            <input type="text" id="searchInput" placeholder="Search channels" onkeyup="searchChannels()">
+
+             <ul class="channel-list" id="channelList">
+                <button><li class="channel-list-item" onclick="message()">General</li></button>
+                <button><li class="channel-list-item" onclick="message()">Random</li></button>
+                <button><li class="channel-list-item" onclick="message()">Tech Talk</li></button>
+                <button><li class="channel-list-item" onclick="message()">Designers Zone</li></button>
+                <!-- Add more channels as needed -->
+            </ul>
+
+            <div class="create-channel-form">
+                <label for="channelName">Channel Name:</label>
+                <input type="text" id="channelName" name="channelName" required>
+
+                <label for="channelDescription">Channel Description:</label>
+                <input type="text" id="channelDescription" name="channelDescription" required>
+
+                <button onclick="createChannel()">Create Channel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createChannel() {
+            alert("Channel created!");
+
+        }
+        function message() {
+           window.location.href = 'hhl3.html';
+        }
+        function searchChannels() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById('searchInput');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById('channelList');
+            //did by dappella Naga vinay
+            li = ul.getElementsByTagName('li');
+
+            for (i = 0; i < li.length; i++) {
+                a = li[i];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = '';
+                } else {
+                    li[i].style.display = 'none';
+                }
+            }
+        }
+
+        
+        function logout() {
+            window.location.href = 'hhl1.html';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slack Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('slack.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        header {
+            background-color: #2ecc71; 
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .auth-options {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .auth-options button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .main-content {
+            width: 65%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            //Did by dappella Naga vinay
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        .login-form,
+        .signup-form {
+            width: 350px;
+            margin: 20px auto;
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        .signup-form button,
+        .login-form button{
+            color: blueviolet;
+            margin-bottom: 10px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background 0.3s ease, box-shadow 0.3s ease; 
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+        }
+        .login-form label,
+        .signup-form label {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .signup-form input,
+        .login-form input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Slack Clone</h1>
+    </header>
+
+    <section>
+        <div class="auth-options">
+            <button onclick="showLogin()">Login</button>
+            <button onclick="showSignup()">Signup</button>
+        </div>
+
+        <div class="main-content">
+            <h1>Welcome to slack clone. Get ready to interact with people worldwide.</h1>
+        </div>
+    </section>
+
+    <script>
+        function showLogin() {
+            document.querySelector('.main-content').innerHTML = `
+                <div class="login-form">
+                    <h2>Login</h2>
+                    <form action="#" method="post" onsubmit="return login()">
+                        <label for="loginUsername">Username:</label>
+                        <input type="text" id="loginUsername" name="username" required>
+
+                        <label for="loginPassword">Password:</label>
+                        <input type="password" id="loginPassword" name="password" required>
+
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+            `;
+        }
+
+        function showSignup() {
+            document.querySelector('.main-content').innerHTML = `
+                <div class="signup-form">
+                    <h2>Signup</h2>
+                    <form action="#" method="post" onsubmit="return signup()">
+                        <label for="signupUsername">Username:</label>
+                        <input type="text" id="signupUsername" name="username" required>
+
+                        <label for="signupPassword">Create Password:</label>
+                        <input type="password" id="signupPassword" name="password" required>
+
+                        <label for="reenterPassword">Re-enter Password:</label>
+                        <input type="password" id="reenterPassword" name="reenterPassword" required>
+
+                        <label for="signupEmail">Email:</label>
+                        <input type="email" id="signupEmail" name="email" required>
+
+                        <button type="submit">Signup</button>
+                    </form>
+                </div>
+            `;
+        }
+
+        function login() {
+            //did by dappella naga vinay
+            window.location.href = 'hhl2.html';
+            return false;
+        }
+
+        function signup() {
+            window.location.href = 'hhl2.html';
+            return false;
+        }
+    </script>
+
+</body>
+</html>
